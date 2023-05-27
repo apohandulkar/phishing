@@ -17,7 +17,7 @@ file.close()
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
-def index():
+def index(url):
     if request.method == "POST":
 
         url = request.form["url"]
@@ -32,7 +32,7 @@ def index():
         # if(y_pred ==1 ):
         pred = "It is {0:.2f} % safe to go ".format(y_pro_phishing*100)
         return render_template('index.html',xx =round(y_pro_non_phishing,2),url=url )
-    # return render_template("index.html", xx =-1)
+    return render_template("index.html", xx =-1)
 
 
 if __name__ == "__main__":
